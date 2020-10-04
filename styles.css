@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*.image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+}
+
+.image img {
+    width: 600px;
+    height: 400px;
+}*/
+
+#wrappertwod {
+    margin: 50px auto;
+    display: absolute;
+    border: 1px solid #9C9898;
+    width: 600px;
+    height: 600px;
+}
+
+#buttonWrapper {
+    position: absolute;
+    width: 30px;
+    top: 2px;
+    right: 2px;
+}
+
+input[type="button"] {
+    padding: 5px;
+    width: 30px;
+    margin: 0px 0px 2px 0px;
+}
