@@ -1,6 +1,5 @@
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
-context.scale(0.7, 0.7); // scale the canvas
 
 //Get Fence Post based on click
 function getMousePos(canvas, evt) {
@@ -71,14 +70,14 @@ canvas.addEventListener("click", function(evt) {
         alert("You have your posts ready!");
     } else {
         slat1(F1x, F1y, F2x, F2y);
-        slat15(F1x, F2x, end1, end2);
-        slat2(m1, s1, m2, s2);
+        lastSlat(F1x, F2x, end1, end2);
+        middleSlat(m1, s1, m2, s2);
     }
 }, false);
 
 //Fence Post Drawing Functions
 function firstPost() {
-    end1 = P1y + 200
+    end1 = P1y + 350
     context.save();
     context.beginPath(); // begin custom shape
     context.moveTo(P1x, P1y); // Left (Fence's Left) Bar
@@ -90,7 +89,7 @@ function firstPost() {
 }
 
 function secondPost() {
-    end2 = P1y + 200
+    end2 = P1y + 350
     context.beginPath(); // begin custom shape
     context.moveTo(P1x, P1y); // Fence Middle
     context.lineWidth = 15;
@@ -101,7 +100,7 @@ function secondPost() {
 }
 
 function thirdPost() {
-    end3 = P1y + 300
+    end3 = P1y + 350
     context.beginPath(); // begin custom shape
     context.moveTo(P1x, P1y); // Extreme Right (Fence's) Bar
     context.lineWidth = 15;
@@ -113,9 +112,9 @@ function thirdPost() {
 
 function slat1(F1x, F1y, F2x, F2y) {
     context.beginPath(); // begin custom shape
-    context.moveTo(F1x, F1y * 1.05)
-    context.lineWidth = 7
-    context.lineTo(F2x, F2y * 1.05)
+    context.moveTo(F1x, F1y * 1.05);
+    context.lineWidth = 7;
+    context.lineTo(F2x, F2y * 1.05);
     context.stroke(); // Draw slat1
     firstSlat1x = F1x;
     firstSlat1y = F1y * 1.05;
@@ -123,18 +122,19 @@ function slat1(F1x, F1y, F2x, F2y) {
     firstSlat2y = F2y * 1.05;
 }
 
-function slat15(F1x, F2x, end1, end2) {
+function lastSlat(F1x, F2x, end1, end2) {
     context.beginPath(); // begin custom shape
-    context.moveTo(F1x, end1);
+    context.moveTo(F1x, end1 * 0.99);
     context.lineWidth = 7
-    context.lineTo(F2x, end2);
-    lastSlat1y = end1;
-    lastSlat2y = end2;
-    lastSlat3y = end3;
+    context.lineTo(F2x, end2 * 0.99);
+    lastSlat1y = end1 * 0.99;
+    lastSlat2y = end2 * 0.99;
+    lastSlat3y = end3 * 0.99;
+    context.lineJoin = 'round';
     context.stroke(); // Draw last slat
 }
 
-function slat2(m1, s1, m2, s2) {
+function middleSlat(m1, s1, m2, s2) {
     m1 = firstSlat1x;
     s1 = firstSlat2x;
     m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 20));
@@ -266,6 +266,71 @@ function slat2(m1, s1, m2, s2) {
     context.lineTo(s1, s2);
     context.stroke(); // Draw slat12
 
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.59));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.59));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat13
+
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.475));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.475));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat14
+
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.379));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.379));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat15
+
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.293));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.293));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat15
+
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.22));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.22));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat16
+
+    m2 = ((firstSlat1y) + ((end1 - firstSlat1y) / 1.1581));
+    s2 = ((firstSlat2y) + ((end2 - firstSlat2y) / 1.1581));
+    console.log(m2);
+    console.log(s2);
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.beginPath(); // begin custom shape
+    context.moveTo(m1, m2);
+    context.lineTo(s1, s2);
+    context.stroke(); // Draw slat17
 
 
 
